@@ -1,3 +1,4 @@
+import base64
 from datetime import datetime
 from google.analytics.data_v1beta import BetaAnalyticsDataClient
 from google.analytics.data_v1beta.types import (
@@ -12,8 +13,9 @@ import os
 import pandas as pd
 
 #secrets 
-PRIVATE_KEY = os.environ['PRIVATE_KEY'],
-CLIENT_EMAIL = os.environ['CLIENT_EMAIL'],
+pk_base64 = base64.b64decode(os.environ['PRIVATE_KEY'])
+PRIVATE_KEY = pk_base64.decode("ascii")
+CLIENT_EMAIL = os.environ['CLIENT_EMAIL']
 TOKEN_URI = os.environ['TOKEN_URI']
 
 json_acct_info = {
