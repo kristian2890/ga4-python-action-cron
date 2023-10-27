@@ -27,9 +27,9 @@ jobs:
           
       - name: execute py script # run main.py
         env:
-          SOME_SECRET: ${{ secrets.PRIVATE_KEY }}
-          SOME_SECRET: ${{ secrets.CLIENT_EMAIL }}
-          SOME_SECRET: ${{ secrets.TOKEN_URI }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
+          TOKEN_URI: ${{ secrets.TOKEN_URI }}
         run: python main.py
           
       - name: commit files
